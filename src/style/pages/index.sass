@@ -1,0 +1,1646 @@
+body, P
+	font-family: Microsoft JhengHei, Helvetica Neue, Helvetica, Arial, sans-serif !important 
+
+/* common setting */
+.col-centered
+	display: inline-block
+	float: none!important
+
+.row-centered
+	text-align: center
+
+.bold
+	font-weight: bold
+
+/* Index_ctnr */
+.Index_ctnr
+	background-color: $major
+
+/* KVSlide */
+.Index_ctnr
+	.KVSlide
+		height: 610px
+		.wrap
+			width: 100%
+			.slick-list
+				&:before
+					content: ""
+					position: absolute
+					top: 0
+					left: 0
+					bottom: 0
+					right: 0
+					background: linear-gradient(transparent 80%, rgba(0,0,0,.2))
+			.image
+				height: 610px
+				position: relative
+				background-size: cover
+				background-repeat: no-repeat
+				background-position: center
+			.decoration
+				background-image: url(/src/images/KVSlide/decoration.png)
+				width: 360px
+				height: 197px
+				background-size: cover
+				position: absolute
+				top: 270px
+				left: 210px
+			.slick-dots
+				bottom: 15px
+
+@media screen and (max-width: $screen-xl-min)
+	.Index_ctnr
+		.KVSlide
+			height: 370px
+			.wrap
+				width: auto
+				.slick-list
+					.slick-slide
+						height: 370px
+				.decoration
+					width: 202px
+					height: 111px
+					top: 186px
+					left: 94px
+				.slick-dots
+					width: 100%
+
+@media screen and (max-width: $screen-xs-max)
+	.Index_ctnr
+		.KVSlide
+			height: 500px
+			.wrap
+				.slick-list
+					.slick-slide
+						height: 500px
+				.decoration
+					width: 180px
+					height: 99px
+					top: 277px
+					left: 29px
+
+/* Event */
+.Index_ctnr
+	.Event
+		background-color: #EBEBEB
+		padding-bottom: 140px
+
+		.content
+			margin: auto
+			.titleWrap
+				padding-bottom: 30px
+
+@media screen and (max-width: $screen-xl-min)
+	.Index_ctnr
+		.Event
+			padding-bottom: 70px
+
+/* Investor */
+.Index_ctnr
+	.Investor
+		margin-bottom: 60px
+		.wrap
+			width: 940px
+			margin: 0 auto auto
+			.title
+				margin-bottom: 24px
+				text-align: center
+				span
+					margin-right: 14px
+					font-size: 42px
+					font-weight: bold
+				a
+					padding: 0 2px 6px 2px
+					color: $navy
+					font-size: 16px
+					position: relative
+					vertical-align: 11px
+					&:before
+						content: ""
+						width: 65%
+						border-bottom: 1px solid $navy
+						position: absolute
+						left: 0
+						bottom: 0
+						transition: width 0.5s ease
+					&:hover:before
+						width: 100%
+			.newsList
+				.item
+					position: relative
+					&:last-child .itemTitle
+						border: none
+					.itemTitle
+						padding: 32px 0 32px 56px
+						border-bottom: 1px solid #ccc
+						font-weight: bold
+						cursor: pointer
+						+display(flex)
+						&:hover
+							background: #ebebeb
+						&:before
+							content: "+"
+							margin-right: 14px
+							position: absolute
+							top: 26px
+							left: 30px
+							font-size: 26px
+							font-weight: normal
+						&.active
+							background: $lipstick
+						&.active:before
+							content: "-"
+							color: #fff
+						&.active + .itemDesp
+							max-height: 1000px
+						&.active .time, &.active .subject
+							color: #fff
+						&.active .pdf
+							color: #fff
+						&.active .pdf:after
+							@extend .index-download-w
+						.time
+							padding-right: 20px
+							color: $lipstick
+						.subject
+							white-space: nowrap
+							overflow: hidden
+							text-overflow: ellipsis
+							padding-right: 110px
+						.pdf
+							font-weight: normal
+							color: black
+							position: absolute
+							top: 22px
+							right: 28px
+							&:after
+								content: ""
+								width: 28px
+								height: 34px
+								margin-left: 5px
+								vertical-align: -9px
+								display: inline-block
+								+addSprite
+								@extend .index-download
+					.itemDesp
+						max-height: 0
+						font-family: courier, "微軟正黑體"
+						overflow: hidden
+						background: #fff
+						transition: max-height 0.5s linear
+						.despWrap
+							padding: 30px
+
+	.Investor.m .wrap .newsList .item .itemTitle.active .pdf:after
+		@extend .index-download
+
+@media screen and (max-width: 940px)
+	.Index_ctnr
+		.Investor
+			padding: 0 7vw
+			.wrap
+				width: auto
+				margin: 0
+				.title
+					text-align: left
+					+display(flex)
+					+align-items(center)
+					+justify-content(space-between)
+					span
+						font-size: 32px
+					a
+				.newsList
+					.item
+						.itemTitle
+							padding: 21px 0 21px 48px
+							&:before
+								top: 16px
+								left: 18px
+							.subject
+								padding-right: 100px
+							.pdf
+								top: 13px
+								right: 18px
+								&:after
+									width: 21px
+									height: 27px
+									vertical-align: -4px
+						.itemDesp
+							.despWrap
+								padding: 26px
+
+@media screen and (max-width: 768px)
+	.Index_ctnr
+		.Investor
+			padding: 0 6vw
+			margin-bottom: 20px
+			.wrap
+				.title
+					span
+					a
+				.newsList
+					.item
+						.itemTitle
+							padding: 16px 0 16px 36px
+							display: block
+							&:before
+								width: 16px
+								top: 11px
+								left: 12px
+								text-align: center
+							.subject
+								padding: 6px 12px 0 0
+								display: block
+								white-space: normal
+							.pdf
+								display: none
+								&:after
+						.itemTitle.active
+							.pdf
+								color: #000
+								top: initial
+								right: 20px
+								bottom: 20px
+								display: block
+						.itemDesp
+							.despWrap
+								padding: 26px 26px 42px 26px
+
+
+/* PR */
+.Index_ctnr
+	.PR
+		height: 660px
+		background-image: url(img/single-bg-img/pr-bg.jpg)
+		background-size: 389px 355px
+		.wrap
+			max-width: 840px
+			padding-top: 104px
+			margin: 0 auto
+			text-align: center
+			box-sizing: border-box
+			.title
+				margin-bottom: 12px
+				font-size: 40px
+				font-weight: bold
+				color: $lipstick
+				&:before
+					content: ""
+					width: 37px
+					height: 24px
+					margin: 0 auto 20px auto
+					display: block
+					+addSprite
+					@extend .index-quote
+			.subtitle
+				margin-bottom: 10px
+				font-size: 18px
+				font-weight: bold
+				color: #333333
+				position: relative
+				&:after
+					content: ""
+					width: 30px
+					height: 4px
+					margin-left: -15px
+					position: absolute
+					left: 50%
+					bottom: -10px
+					background: $lipstick
+			.PRSlide
+				> div
+					height: 338px
+					+display(flex)
+					+justify-content(space-between)
+				.slideItem
+					width: 256px
+					height: 272px
+					position: relative
+					&:after
+						content: ""
+						width: 3px
+						height: 15px
+						margin-left: 1.5px
+						border-radius: 2px
+						position: absolute
+						top: 160px
+						left: 50%
+						background: #000000
+					&:before
+						content: ""
+						background-image: url(/src/images/others/pr_circle.png)
+						background-size: contain
+						position: absolute
+						top: -15px
+						left: 28px
+						width: 200px
+						height: 200px
+						animation: rotate 25s linear infinite
+						
+					&:nth-child(2)
+						+align-self(flex-end)
+					&:nth-child(2):before
+						animation-direction: reverse
+					> div
+						position: relative
+						z-index: zindex(int)
+					.number, .engDes, .chtDes
+						position: absolute
+					.number
+						width: 70px
+						left: 60px
+						top: 15px
+						font-size: 100px
+						font-weight: bold
+						color: #eeeff1
+						display: none
+					.engDes
+						width: 110px
+						left: 78px
+						top: 107px
+						font-size: 24px
+						font-weight: bold
+						color: #eeeff1
+						display: none
+					.chtDes
+						width: 100%
+						left: 0
+						top: 50px
+						font-size: 50px
+						font-weight: bold
+						color: $navy
+					.copy
+						padding-top: 184px
+						font-size: 16px
+						line-height: 1.5
+@keyframes rotate
+	from
+		transform: rotate(0deg)
+	to
+		transform: rotate(360deg)
+
+@media screen and (max-width: $screen-xl-min)
+	.Index_ctnr
+		.PR
+			height: 600px
+			.wrap
+				padding-top: 70px
+				.title
+					font-size: 32px
+
+@media screen and (max-width: $screen-xs-max)
+	.Index_ctnr
+		.PR
+			height: 653px
+			.wrap
+				padding-top: 30px
+				.title
+					padding: 0 30px
+				.subtitle
+					margin-bottom: 36px
+				.PRSlide
+					.slideItem
+						&:before
+							left: calc(50% - 100px)
+				.slick-dots
+					bottom: 20px
+					li
+						margin: 0
+						button:before
+							content: ""
+							width: 8px
+							height: 8px
+							border-radius: 50%
+							box-sizing: border-box
+							border: 1px solid #dadada
+							line-height: 0
+							left: 6px
+							top: 6px
+							background: #dadada
+							opacity: 1
+					li.slick-active
+						button:before
+							border-color: $lipstick
+							background: $lipstick
+
+
+/* Milestone */
+.Index_ctnr
+	.Milestone
+		height: 160px
+		color: #fff
+		position: relative
+		background: url(/src/style/img/single-bg-img/milestone-bg.png) center no-repeat
+		background-size: cover
+		+display(flex)
+		+justify-content(center)
+		+align-items(center)
+		.bg
+			width: 100%
+			height: 100%
+			position: absolute
+			top: 0
+			left: 0
+			background-color: rgba(0, 0, 0, 0.7)
+		.item
+			margin: 0 36px
+			font-size: 18px
+			z-index: 1
+		.parm
+			margin-right: 8px
+			font-size: 40px
+			line-height: 40px
+			display: inline-block
+			span+span
+				font-size: 14px
+				&:before
+					content: "."
+					padding: 0 10px
+					font-size: 32px
+			.se
+				font-style: oblique
+		.unit
+				font-size: 14px
+		small
+			font-size: 14px
+			padding-left: 10px
+
+@media screen and (max-width: $screen-xl-min)
+	.Index_ctnr
+		.Milestone
+			.item
+				margin: 0 18px
+
+@media screen and (max-width: $screen-xs-max)
+	.Index_ctnr
+		.Milestone
+			height: 452px
+			flex-direction: column
+			background: url(/src/style/img/single-bg-img/milestone-bg-m.png) center no-repeat
+			background-size: cover
+			.bg
+				background-color: unset
+			.item
+				width: 280px
+				padding: 15px 0
+				margin: 0
+				+display(flex)
+				+align-items(center)
+				.cate
+					width: 130px
+
+
+/* Performance */
+.Index_ctnr
+	.Performance
+		overflow: hidden
+		color: #fff
+		background: #000000
+		.wrap
+			width: 940px
+			height: 500px
+			margin: 0 auto
+			+display(flex)
+			+align-items(center)
+			.title
+				div
+					white-space: nowrap
+				div:nth-child(1)
+					font-size: 40px
+					font-weight: 500
+				div:nth-child(2)
+					font-size: 60px
+					font-weight: 500
+					color: $lipstick
+				div:nth-child(3)
+					font-size: 24px
+			.eventList
+				height: 100%
+				position: relative
+				+flex-basis(100%)
+				&:before, &:after
+					content: ""
+					border-radius: 50%
+					position: absolute
+					background-color: #fff
+					+addSprite
+				&:before
+					width: 40px
+					height: 40px
+					top: 222px
+					left: 120px
+					@extend .index-performance01
+				&:after
+					width: 40px
+					height: 40px
+					top: 108px
+					left: 327px
+					@extend .index-performance02
+				.item
+					position: absolute
+					&:nth-child(1)
+						top: 268px
+						left: 43px
+					&:nth-child(2)
+						top: 70px
+						left: 140px
+					&:nth-child(3)
+						top: 178px
+						left: 327px
+					.year
+						width: 54px
+						margin: 0 auto 10px auto
+						font-size: 20px
+						font-weight: bold
+						color: #FFFFFF
+						text-align: center
+						position: relative
+						z-index: 1
+						font-style: oblique
+					.position
+						width: 120px
+						height: 120px
+						padding: 0px 0 0 32px
+						font-size: 48px
+						color: $lipstick
+						font-weight: bold
+						border-radius: 50%
+						box-sizing: border-box
+						background: #fff
+						position: relative
+						+display(flex)
+						+flex-direction(column)
+						+justify-content(center)
+						&:before
+							content: "no."
+							margin-bottom: -6px
+							font-size: 16px
+						&:after
+							content: ""
+							background-image: url(/src/images/others/year_decoration.png)
+							background-size: contain
+							width: 54px
+							height: 60px
+							position: absolute
+							top: -22px
+							right: -32px
+							transform: rotate(96deg)
+					&:nth-child(2)
+						.position:after
+							transform: rotate(0deg)
+							left: -32px
+							right: 0
+					.detail
+						position: absolute
+						left: 140px
+						top: 84px
+						white-space: nowrap
+						div:nth-child(1)
+							font-size: 24px
+							margin-bottom: 7px
+						div:nth-child(2)
+							font-size: 14px
+
+@media screen and (max-width: $screen-xl-min)
+	.Index_ctnr
+		.Performance
+			.wrap
+				width: 572px
+				height: 350px
+				.title
+					div:nth-child(1)
+						font-size: 28px
+					div:nth-child(2)
+						font-size: 42px
+					div:nth-child(3)
+						font-size: 16px
+				.eventList
+					&:before
+						width: 30px
+						height: 30px
+						top: 76px
+						left: 213px
+					&:after
+						width: 25px
+						height: 25px
+						top: 157px
+						left: 67px
+					.item
+						&:nth-child(1)
+							top: 187px
+							left: 16px
+						&:nth-child(2)
+							top: 50px
+							left: 83px
+						&:nth-child(3)
+							top: 125px
+							left: 213px
+						.year
+							font-size: 15px
+						.position
+							width: 84px
+							height: 82px
+							padding: 0px 0 0 25px
+							font-size: 32px
+							&:before
+								font-size: 13px
+							&:after
+								width: 37px
+								height: 42px
+								right: -20px
+								top: -18px
+						&:nth-child(2)
+							.position:after
+								transform: rotate(0deg)
+								left: -20px
+								right: 0
+						.detail
+							left: 96px
+							top: 66px
+							div:nth-child(1)
+								font-size: 16px
+								margin-bottom: 3px
+							div:nth-child(2)
+								font-size: 9px
+				
+
+@media screen and (max-width: $screen-xs-max)
+	.Index_ctnr
+		.Performance
+			.wrap
+				height: 600px
+				max-width: 320px
+				align-items: start
+				flex-direction: column
+				.title
+					padding-top: 40px
+					div:nth-child(1)
+						font-size: 18px
+					div:nth-child(2)
+						font-size: 32px
+					div:nth-child(3)
+						font-size: 16px
+				.eventList
+					height: 100%
+					width: 100%
+					position: relative
+					&:before
+						left: unset
+						right: 68px
+						top: 393px
+						width: 36px
+						height: 36px
+					&:after
+						width: 30px
+						height: 30px
+						top: 197px
+						left: 50px
+					.item
+						&:nth-child(1)
+							top: 22px
+							left: 0px
+						&:nth-child(2)
+							top: 177px
+							left: unset
+							right: 0px
+						&:nth-child(3)
+							top: 296px
+							left: 0px
+						.year
+							margin: 0 auto 3px auto
+							font-size: 18px
+						.position
+							width: 100px
+							height: 100px
+							font-size: 40px
+							&:after
+								width: 45px
+								height: 45px
+								right: -30px
+								top: -12px
+						.detail
+							font-size: 16px
+							left: 128px
+							top: 78px
+							div:nth-child(1)
+								margin-bottom: 6px
+							div:nth-child(2)
+								font-size: 12px
+
+
+/* Progress */
+=activeSlideItemStyle
+	cursor: default
+	border: none
+	position: relative
+	z-index: zindex(int)
+	& + .slideItem
+		border-left: none
+	.year
+		margin-bottom: 28px
+		font-size: 28px
+		&:after
+			font-size: 20px
+	.capital
+		width: 100px
+		height: 100px
+		margin-bottom: 30px
+		white-space: nowrap
+		span
+			color: #fff
+			line-height: 100px
+		span:nth-child(1)
+			font-size: 30px
+			font-weight: bold
+		span:nth-child(2)
+			font-size: 14px
+	.title, .content
+		padding: 0 26px
+		display: block
+	.title
+		margin-bottom: 10px
+		font-size: 20px
+		font-weight: bold
+		color: #2d4458
+	.content
+		font-size: 16px
+		color: #6b7b8b
+		line-height: 1.5
+
+.Index_ctnr
+	.Progress
+		height: 480px
+		text-align: center
+		overflow: hidden
+		position: relative
+		&:before, &:after
+			content: ""
+			width: 100%
+			height: 100%
+			position: absolute
+			left: 0
+			top: 0
+			z-index: zindex(Progress)
+			pointer-events: none
+			background-position: 0px 0px
+			background-repeat: repeat-x
+			animation: animatedBackground 40s linear infinite
+		&:before
+			background-image: url(img/single-bg-img/progress-bg1.png)
+		&:after
+			background-image: url(img/single-bg-img/progress-bg2.png)
+			animation-direction: reverse
+		.slideItem
+			padding: 30px 0 0 0
+			box-sizing: border-box
+			cursor: pointer
+			> *
+				pointer-events: none
+			.year
+				margin-bottom: 2px
+				font-size: 19px
+				font-weight: bold
+				color: #9eb0bf
+				&:after
+					content: "year"
+					font-size: 17px
+					font-weight: normal
+					display: block
+			.capital
+				width: 10px
+				height: 10px
+				font-size: 0
+				overflow: hidden
+				border-radius: 50%
+				background: #96abc1
+				position: relative
+				transition: width 0.3s ease, height 0.3s ease
+				display: inline-block
+				.logo
+					position: absolute
+					top: 50%
+					left: 50%
+					opacity: 0
+					+hideText
+					+addSprite
+					&.ezDing
+						width: 76px
+						height: 38px
+						margin: -19px 0 0 -38px
+						@extend .index-logo-ezding
+					&.niceday
+						width: 75px
+						height: 30px
+						margin: -15px 0 0 -38px
+						@extend .index-logo-niceday
+					&.wpg
+						width: 80px
+						height: 38px
+						margin: -19px 0 0 -39px
+						@extend .index-logo-wpg
+					&.imagemore
+						width: 24px
+						height: 54px
+						margin: -27px 0 0 -11px
+						@extend .index-logo-imagemore
+			.title, .content
+				display: none
+		.slideItem.active
+			+activeSlideItemStyle
+
+@keyframes animatedBackground
+	from
+		background-position: 0 0
+	to
+		background-position: 100% 0
+
+@media screen and (min-width: 768px)
+	.Index_ctnr
+		.Progress
+			> div
+				width: 1200px
+				height: 100%
+				margin: 0 auto
+				+display(flex)
+				.slideItem
+					border-left: 1px solid #e4e4e4
+					+flex(1)
+					transition: flex 0.3s ease, background 0.3s
+					&:hover
+						background: #fff
+					&.active
+						box-shadow: 0 0 12px rgba(0,0,0,.15)
+						background: #fff
+						+flex(2)
+						.capital
+							.logo
+								opacity: 1
+					&:last-child
+						border-right: 1px solid #e4e4e4
+
+@media screen and (max-width: 1200px)
+	.Index_ctnr
+		.Progress
+			> div
+				width: auto
+
+@media screen and (max-width: 767px)
+	.Index_ctnr
+		.Progress
+			.slick-track
+				height: 480px
+				.slideItem
+					height: 100%
+					opacity: .5
+					+activeSlideItemStyle
+					.capital
+						.logo
+							opacity: 1
+				.slick-active
+					opacity: 1
+					box-shadow: 0 0 12px rgba(0,0,0,.15)
+					background: #fff
+			.slick-dots
+				bottom: 30px
+				z-index: zindex(ProgressDots)
+				li
+					margin: 0
+					button:before
+						content: ""
+						width: 8px
+						height: 8px
+						border-radius: 50%
+						box-sizing: border-box
+						border: 1px solid #fff
+						line-height: 0
+						left: 6px
+						top: 6px
+						background: #fff
+						opacity: 1
+				li.slick-active
+					button:before
+						border-color: $lipstick
+						background: $lipstick
+
+
+/* Group */
+.Index_ctnr
+	.Group
+		margin: auto
+		min-height: calc(1187px - 86px)
+		text-align: center
+		background-color: #FFFFFF
+		.boxWrap
+			> div
+				display: inline-flex
+				flex-wrap: wrap
+				justify-content: space-around
+				max-width: 970px
+				padding: 0 30px
+				font-size: 16px
+
+			.box
+				max-width: 280px
+				.logo
+					width: 200px
+					height: 85px
+					margin: auto auto 28px auto
+					.img
+						width: 90%
+						height: 90%
+						background-size: contain
+						&.niceday
+							background-image: url(/src/images/groupIcon/niceday.png)
+						&.ez
+							background-image: url(/src/images/groupIcon/ez.png)
+						&.norton
+							background-image: url(/src/images/groupIcon/norton.png)
+						&.ideacard
+							background-image: url(/src/images/groupIcon/ideacard.png)
+						&.imagemore
+							background-image: url(/src/images/groupIcon/imagemore.png)
+						&.iot
+							background-image: url(/src/images/groupIcon/iot.png)
+				.desc
+					text-align: left
+					.title
+						font-weight: bold
+					.link
+						color: #838383
+						display: block
+						padding: 24px 0 86px 0
+						&:hover,&:focus
+							text-decoration: unset
+							color: $lipstick
+
+@media screen and (max-width: $screen-xl-min)
+	.Index_ctnr
+		.Group
+@media screen and (max-width: $screen-xs-max)
+	.Index_ctnr
+		.Group
+			height: auto
+			min-height: unset
+			padding-bottom: 88px
+			.boxWrap
+				> div
+					max-width: 280px
+					display: block
+					margin: auto
+					padding: unset
+				.box
+					max-width: unset
+					.desc
+						.link 
+							padding: 24px 0
+
+/* ImagePopup */
+.Index_ctnr
+	.ImagePopup
+		height: 550px
+		.image
+			background-position: center
+			background-size: cover
+			background-repeat: no-repeat
+			width: 100%
+			height: 550px
+			
+
+@media screen and (max-width: $screen-xl-min)
+	.Index_ctnr
+		.ImagePopup
+			height: 293px
+			.image
+				height: 293px
+
+@media screen and (max-width: $screen-xs-max)
+	.Index_ctnr
+		.ImagePopup
+
+/* VideoSec */
+.Index_ctnr
+	.VideoSec
+		height: 750px
+		padding-top: 506px
+		text-align: center
+		background: url(img/single-bg-img/voice-sec.jpg) center top
+		background-size: cover
+		box-sizing: border-box
+		a
+			width: 60px
+			height: 60px
+			display: inline-block
+			+addSprite
+			@extend .index-play
+			&:hover
+				opacity: .8
+
+@media screen and (max-width: 1199px)
+	.Index_ctnr
+		.VideoSec
+			height: 480px
+			padding-top: 316px
+			a
+				width: 60px
+				height: 60px
+
+@media screen and (max-width: 767px)
+	.Index_ctnr
+		.VideoSec
+			height: 360px
+			padding-top: 247px
+			a
+				width: 60px
+				height: 60px
+
+
+/* FtcTeam */
+.Index_ctnr
+	.FtcTeam
+		height: 967px
+		.titleWrap
+			color: #FFFFFF
+		background: #2F2F2F
+		.memberWrap
+			width: 956px
+			margin: auto
+			position: relative
+			.people
+				position: absolute
+				img
+					width: 212px
+					height: 212px
+				&:nth-child(1)
+					top: 212px
+					left: 0px
+				&:nth-child(2)
+					top: 0px
+					left: 212px
+				&:nth-child(3)
+					top: 212px
+					left: 212px
+				&:nth-child(4)
+					top: 212px
+					left: 424px
+				&:nth-child(5)
+					top: 0px
+					left: 636px
+				&:nth-child(6)
+					top: 212px
+					left: 636px
+				.descwrap
+					position: absolute
+					bottom: calc(-149.92px / 2)
+					right: calc(-149.92px / 2)
+					width: 149.92px
+					height: 149.92px
+					transform: rotate(45deg)
+					&.male
+						background-color: #000000
+					&.female
+						background-color: $lipstick
+					.desc
+						transform: rotate(-45deg)
+						position: absolute
+						top: 44px
+						left: -11px
+						width: 170px
+						color: #FFFFFF
+						text-align: center
+						z-index: 1
+						.name
+							font-size: 16px
+							font-weight: bold
+						.dept
+							font-size: 12px
+
+@media screen and (max-width: $screen-xl-min)
+	.Index_ctnr
+		.FtcTeam
+			height: 1195px
+			.memberWrap
+				width: 640px
+				.people
+					&:nth-child(1)
+						top: 0px
+						left: 0px
+					&:nth-child(2)
+						top: 0px
+						left: 212px
+					&:nth-child(3)
+						top: 212px
+						left: 0px
+					&:nth-child(4)
+						top: calc(212px + 212px/2)
+						left: calc(212px + 212px/2)
+					&:nth-child(5)
+						top: calc(424px + 212px/2)
+						left: calc(212px/2)
+					&:nth-child(6)
+						top: calc(424px + 212px/2)
+						left: calc(212px + 212px/2)
+
+@media screen and (max-width: $screen-xs-max)
+	.Index_ctnr
+		.FtcTeam
+			height: 731px
+			.memberWrap
+				max-width: 275px
+				padding-bottom: 40px
+				.people
+					height: 403px
+					position: unset
+					.descwrap
+						position: unset
+						margin-left: calc(181px / 2)
+						margin-top: calc(-58px / 2)
+
+
+/* Partner */
+.Index_ctnr
+	.Partner
+		background-color: #FFFFFF
+		padding-bottom: 140px
+
+		.slideWrap
+			width: 770px
+			display: flex
+			flex-wrap: wrap
+			margin: auto
+
+			img
+				width: 100%
+				display: block
+
+			.slideItem
+				width: 100px
+				margin: 0 10px 10px 0
+				display: block
+				
+
+@media screen and (max-width: $screen-xl-min)
+	.Index_ctnr
+		.Partner
+			padding-bottom: 70px
+			.slideWrap
+				width: 550px
+
+@media screen and (max-width: $screen-xs-max)
+	.Index_ctnr
+		.Partner
+			.slideWrap
+				width: 100%
+				max-width: 320px
+				> div 
+					width: 100%
+				.boxwrap
+					margin: auto
+					display: flex
+					flex-wrap: wrap
+					justify-content: center
+				
+
+/* EventWrap */
+.EventWrap
+	margin: auto
+	width: 80%
+	
+	.boxWrap
+		padding: 30px 0px
+		display: flex
+		
+		img
+			width: auto
+			height: auto
+			max-width: 100%
+			max-height: 100%
+			
+		.box
+			text-align: center
+			max-width: 305px
+			max-height: 305px
+		
+		.category
+			font-size: 20px
+			font-weight: bold
+			color: #df1845
+
+		.subject
+			font-size: 24px
+			font-weight: bold
+			color: #333333
+		
+		.content
+			font-size: 20px
+			color: #838383
+
+		.info
+			width: 100%
+
+		.btn_event
+			width: 140px
+			height: 44px
+			background-color: #df1845
+			font-size: 20px
+			color: #ffffff
+			float: right
+			border: none
+
+		.glyphicon-time
+			font-size: 16px
+			color:  #cccccc
+			padding-right: 2px
+			.text
+				font-size: 20px
+				color: #838383
+				padding-left: 3px
+
+@media screen and (max-width: $screen-xs-max)
+	.EventWrap
+		width: 95%
+		margin-top: 40px
+
+		.boxWrap
+			flex-direction: column
+			padding: unset
+			padding-bottom: 20px
+
+			.box
+				max-width: 100%
+				max-height: 100%
+			
+			.subject
+				white-space: nowrap
+				text-overflow: ellipsis
+				overflow: hidden
+
+			.category
+				padding-top: 10px
+				
+/* IOT */
+.IOTWrap
+	.contentWrap
+		margin: auto
+		padding: 0 0 84px 0
+		width: 80%
+		max-width: 800px
+		font-size: 18px
+
+		.titleWrap
+			width: 100%
+			text-align: left
+			padding: 30px 0 0 0
+			margin: unset
+
+		.text
+			padding: 40px 0 60px 0
+			line-height: 30px
+			.info
+				padding: 40px 0 0 0
+			
+		.boxWrap
+			display: flex
+			justify-content: space-between
+			.title
+				padding-bottom: 4px
+
+	.title
+		color: #df1845
+		left: 0px!important
+		
+	.subWrap
+		padding-bottom: 16px
+		.subItem
+			color: #838383
+		
+	p
+		margin: 0
+	.h1
+		font-Size: 60px!important
+		font-weight: bold
+		margin: 8px 0 12px 0
+	.h3
+		font-Size: 28px!important
+		font-weight: bold
+	.h4
+		font-size: 20px!important
+		font-weight: bold
+	.mailLink
+		color: #000000
+		font-weight: bold
+		&:hover, &:focus
+			text-decoration: none
+			outline: unset
+@media screen and (max-width: $screen-sm-min)
+	.IOTWrap
+		.contentWrap
+			width: 100%
+			padding: 0 16px 60px 16px
+			.boxWrap
+				flex-direction: column
+			
+			.itemWrap
+				padding-bottom: 40px
+		.h1
+			font-Size: 40px!important
+			margin: 2px 0 8px 0
+		.h3
+			font-Size: 24px!important
+		.LinkTag_IOT
+			font-size: 18px
+
+
+
+
+/* titleWrap */
+.titleWrap
+	color: $navy
+	text-align: center
+	width: 80%
+	max-width: 900px
+	margin: auto
+	padding: 140px 0 50px 0
+	
+	.title
+		position: relative
+		left: 32.5px
+		font-size: 40px
+		font-weight: bold
+		&.text-center
+			left: 0
+
+	.subTitle	
+		width: 65px
+		float: right
+		margin-top: 10px
+	.content
+		text-align: center
+		font-size: 20px
+		line-height: 1.5
+		margin-top: 15px
+		
+@media screen and (max-width: $screen-xl-min)
+	.titleWrap
+		padding: 70px 50px
+		width: 90%
+
+@media screen and (max-width: $screen-xs-max)
+	.titleWrap
+		width: 90%
+		text-align: left
+		padding: 40px 0
+		.title
+			font-size: 32px
+			left: 0px
+		.subTitle
+			font-size: 16px
+		.content
+			font-size: 18px
+			text-align: left
+		
+/* LinkTag */
+a.LinkTag, div.LinkTag
+	padding: 0 2px 6px 2px
+	color: $navy
+	position: relative
+	vertical-align: 11px
+	cursor: pointer
+
+	&.white
+		color: #fff
+		&:before
+			border-bottom: 1px solid #fff
+
+	&:before
+		content: ""
+		width: 65%
+		border-bottom: 1px solid $navy
+		position: absolute
+		left: 0
+		bottom: 0
+		transition: width 0.5s ease
+
+	&:hover
+		text-decoration: blink
+		&:before
+			width: 100%
+
+a.LinkTag_IOT
+	color: #838383
+	font-size: 18px
+	&:hover, &:focus
+		text-decoration: none
+		color: #5C5C5C
+		outline: none
+
+.carousel
+	&.container
+		width: 100%
+	.row
+		margin: auto
+	.box
+		width: 305px
+		height: 305px
+		margin: 10px
+		background-color: #dcdcdc
+	img
+		padding: 0px
+		object-fit: fill
+	.carousel-control
+		background-image: none !important
+		color: #df1845
+		&:hover
+			color: #df1845
+	.carousel-indicators
+		display: none
+
+@media screen and (max-width: 850px)
+	.carousel
+		.carousel-control
+			width: 10%
+
+@media screen and (max-width: 370px)
+	.carousel
+		.box
+			width: 100%
+			margin: auto
+
+/* modal-dialog */
+.modal
+	text-align: center
+	padding: 0!important
+
+.modal:before
+	content: ''
+	display: inline-block
+	height: 100%
+	vertical-align: middle
+	margin-right: -4px
+
+.modal-dialog
+	display: inline-block
+	text-align: left
+	vertical-align: middle
+
+.consoleInfo
+	$controlSize: 50px
+	.modal-dialog
+		width: calc(100% - 100px)
+		margin: auto
+	.modal-content
+		padding-bottom: 20px
+	.modal-body
+		max-height: 65vh
+		-webkit-overflow-scrolling: touch
+		overflow-y: auto
+
+	.modal-header
+		border: none
+		padding: 15px 15px 0 15px
+
+	.close
+		font-size: 42px
+	.title
+		font-size: 40px
+		font-weight: bold
+		text-align: center
+		padding-top: 45px
+	.subTitle
+		font-size: 20px
+		text-align: center
+		margin-bottom: 40px
+	.form-control, .btn-control
+		height: $controlSize
+		margin-bottom: 25px
+		width: 100%
+	.form-control
+		font-size: 16px
+	.form-control-valid
+		margin-bottom: 2px
+		border-color: #dc3545
+	.btn-control
+		background-color: #df1845
+		color: #ffffff
+		font-size: 20px
+		&:hover, &:focus
+			background-color: #df1845
+			color: #ffffff
+			font-weight: bold
+	.multiple-text
+		height: $controlSize * 3 + 50
+		margin-bottom: 25px
+		resize: none
+	.valid-feedback
+		font-size: 12px
+		color: rgba(0, 0, 0, 0.6)
+		margin-left: 15px
+		margin-bottom: 7px
+		color: #dc3545
+	.alert
+		margin: auto
+		font-weight: bold
+
+
+
+@media screen and (max-width: $screen-sm-min)
+	.consoleInfo
+		$controlSize: 50px
+		.modal-dialog
+			width: 95%!important
+		.title
+			font-size: 32px
+			text-align: left
+			padding-top: 40px
+		.close
+			font-size: 36px
+		.subTitle
+			font-size: 18px
+			text-align: left
+			margin-bottom: 20px
+
+.LoadingModal	
+	$spinner-size: 80px
+	$spinner-half-size: $spinner-size / 2
+
+	.modal-dialog, .modal-content
+		height: $spinner-size + 30px
+		width: $spinner-size + 30px
+
+	.loading
+		border: 8px solid rgba(243, 243, 243, 0.5)
+		border-top: 8px solid rgba(85, 85, 85, 0.5)
+		border-radius: 50%
+		width: $spinner-size
+		height: $spinner-size
+		position: absolute
+		animation: spinner 0.75s linear infinite
+		-webkit-animation: spinner 0.75s linear infinite
+
+@-webkit-keyframes spinner
+	0%
+		-webkit-transform: rotate(0deg)
+	50%
+		-webkit-transform: rotate(180deg)
+	100%
+		-webkit-transform: rotate(360deg)
+
+@keyframes spinner
+	0%
+		transform: rotate(0deg)
+		-webkit-transform: rotate(0deg)
+	100%
+		transform: rotate(360deg)
+		-webkit-transform: rotate(360deg)
+
+/* banner */
+.banner
+	background-size: cover
+	height: 400px
+	
+	&.IOT
+		background-image: url(/src/images/banner/banner_IOT.png)
+		background-color: rgba(0, 0, 0, 0.5)
+		display: flex
+		justify-content: center
+		align-items: center
+
+		.bannerTextWrap
+			max-width: 800px
+			width: 80%
+
+			.txt
+				font-size: 80px
+				color: white
+				font-weight: bold
+@media screen and (max-width: $screen-sm-min)
+	.banner
+		height: 250px
+
+		&.IOT
+			.bannerTextWrap
+				width: 100%
+				padding: 16px
+				.txt
+					font-size: 65px
+					top: 125px
+					left: 16px
+
+
+.slick-dots
+	width: 100%
+	li
+		margin: 0
+		button:before
+			content: ""
+			width: 8px
+			height: 8px
+			border-radius: 50%
+			line-height: 0
+			left: 6px
+			top: 6px
+			background-color: #DDDDDD
+			opacity: 1
+	li.slick-active
+		button:before
+			border-color: $lipstick
+			background-color: $lipstick

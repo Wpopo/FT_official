@@ -1,0 +1,156 @@
+/* mixin */
+
+// Flex
+=display($v)
+	@if $v == flex
+		display: flex
+		display: -webkit-flex
+	@if $v == inline-flex
+		display: inline-flex
+		display: -webkit-inline-flex
+=align-content($v)
+	align-content: $v
+	-webkit-align-content: $v
+=align-items($v)
+	align-items: $v
+	-webkit-align-items: $v
+=align-self($v)
+	align-self: $v
+	-webkit-align-self: $v
+=flex($v)
+	flex: $v
+	-webkit-flex: $v
+=flex-basis($v)
+	flex-basis: $v
+	-webkit-flex-basis: $v
+=flex-direction($v)
+	flex-direction: $v
+	-webkit-flex-direction: $v
+=flex-flow($v)
+	flex-flow: $v
+	-webkit-flex-flow: $v
+=flex-grow($v)
+	flex-grow: $v
+	-webkit-flex-grow: $v
+=flex-shrink($v)
+	flex-shrink: $v
+	-webkit-flex-shrink: $v
+=flex-wrap($v)
+	flex-wrap: $v
+	-webkit-flex-wrap: $v
+=justify-content($v)
+	justify-content: $v
+	-webkit-justify-content: $v
+=order($v)
+	order: $v
+	-webkit-order: $v
+
+
+// 加入sprite背景圖
+=addSprite
+	background-image: url(~/src/style/img/sprites.png);
+
+
+//隱藏文字
+=hideText
+	text-indent: 101%
+	white-space: nowrap
+	overflow: hidden
+	display: block
+
+
+// 產生三角型
+// 範例：
+// &:before
+// 	position: absolute
+// 	bottom: -10px
+// 	+triangle(bottomleft, 20px, 10px, red)
+=triangle($direction, $sizeH, $sizeV, $color)
+	content: ""
+	display: block
+	width: 0
+	height: 0
+	border-style: solid
+	@if $direction == top
+		border-width: 0 $sizeH/2 $sizeV $sizeH/2
+		border-color: transparent transparent $color transparent
+	@if $direction == bottom
+		border-width: $sizeV $sizeH/2 0 $sizeH/2
+		border-color: $color transparent transparent transparent
+	@if $direction == left
+		border-width: $sizeV/2 $sizeH $sizeV/2 0
+		border-color: transparent $color transparent transparent
+	@if $direction == right
+		border-width: $sizeV/2 0 $sizeV/2 $sizeH
+		border-color: transparent transparent transparent $color
+	@if $direction == topright
+		border-width: 0 $sizeH $sizeV 0
+		border-color: transparent $color transparent transparent
+	@if $direction == bottomright
+		border-width: 0 0 $sizeH $sizeV
+		border-color: transparent transparent $color transparent
+	@if $direction == bottomleft
+		border-width: $sizeH 0 0 $sizeV
+		border-color: transparent transparent transparent $color
+	@if $direction == topleft
+		border-width: $sizeH $sizeV 0 0
+		border-color: $color transparent transparent transparent
+
+
+// placeholder選擇器
+=placeholder
+	&::-webkit-input-placeholder
+		@content
+	&::-moz-placeholder
+		@content
+	&:-ms-input-placeholder
+		@content
+
+
+// 設定zIndex
+$zIndex: int, Progress, ProgressDots, header
+@function zindex($zi)
+	@return index($zIndex, $zi)
+
+
+//文字過長，秀點點點
+=ellipsis
+	overflow : hidden
+	text-overflow : ellipsis
+	white-space : nowrap
+
+
+//多行text-over:ellipsis，注意：容器要是block level
+=multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white)
+	overflow: hidden
+	position: relative
+	line-height: $lineHeight
+	max-height: $lineHeight * $lineCount * 0.98
+	text-align: justify
+	text-justify: inter-ideograph
+	margin-right: -1em
+	padding-right: 1em
+	&:before
+		content: "..."
+		position: absolute
+		right: 0.2em
+		bottom: 0
+		background-color: $bgColor
+	&:after
+		content: ""
+		position: absolute
+		right: 0.2em
+		width: 1em
+		height: 1em
+		background: $bgColor
+
+
+// 清理外觀
+=appearance-none
+	border:none
+	outline:none
+	-moz-appearance:none
+	-webkit-appearance:none
+	appearance:none
+	&::-ms-expand
+		display: none

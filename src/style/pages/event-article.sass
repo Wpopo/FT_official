@@ -1,0 +1,111 @@
+.EventArticle
+	padding-bottom: 60px
+	background: #fff
+	> div
+		.kv
+			background: linear-gradient(left, $lipstick, $lipstick 50%, #fff 50%, #fff)
+			.kvWrap
+				width: 1200px
+				height: 550px
+				padding-bottom: 40px
+				margin: 0 auto
+				color: #fff
+				box-sizing: border-box
+				background-position: center top
+				background-size: cover
+				position: relative
+				display: flex
+				align-items: flex-end
+				justify-content: center
+				&:before
+					content: ""
+					width: 100%
+					height: 100%
+					background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5))
+					position: absolute
+					left: 0
+					top: 0
+				span
+					width: 820px
+					font-size: 42px
+					font-weight: bold
+					position: relative
+					&:after
+						content: ""
+						width: 30px
+						height: 4px
+						position: absolute
+						left: 0px
+						bottom: -8px
+						background: $lipstick
+		.content
+			width: 820px
+			margin: 0 auto
+			padding-top: 30px
+			> h1
+				margin: 0 0 60px 0
+				font-size: 32px
+				color: #333333
+				position: relative
+				&:after
+					content: ""
+					border-bottom: 1px solid #ddd
+					position: absolute
+					left: -70px
+					right: -70px
+					bottom: -30px
+				.time
+					margin-bottom: 8px
+					color: $lipstick
+					font-size: 15px
+				.title
+			> h2
+				font-size: 24px
+				color: #333333
+			.contentWrap
+				*
+					line-height: 1.4
+				img
+					max-width: 100% !important
+
+@media screen and (max-width: 1200px)
+	.EventArticle
+		> div
+			.kv
+				.kvWrap
+					width: auto
+					height: 320px
+					padding: 0 30px 35px 30px
+					span
+						width: 100%
+			.content
+				width: auto
+				padding: 30px 60px 0 60px
+				> h1
+					&:after
+						left: 0px
+						right: 0px
+
+@media screen and (max-width: 767px)
+	.EventArticle
+		> div
+			.kv
+				.kvWrap
+					width: auto
+					height: 200px
+					padding: 0 30px 35px 30px
+					span
+						width: 100%
+			.content
+				width: auto
+				padding: 20px 6vw 0 6vw
+				> h1
+					margin-bottom: 40px
+					&:after
+						left: 0px
+						right: 0px
+						bottom: -20px
+					.title
+						font-size: 24px
+				> h2
+					font-size: 20px

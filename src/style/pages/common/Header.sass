@@ -1,0 +1,178 @@
+/* Header */
+#root
+.ftcHeader
+	width: 100%
+	height: 80px
+	background-image: linear-gradient(to bottom, rgba(2, 2, 2, 0.55), rgba(0, 0, 0, 0) 73%)
+	position: fixed
+	top: 0
+	z-index: zindex(header)
+	display: flex
+	flex-direction: row;
+	h1.Logo
+		a
+			position: absolute
+			+hideText
+			width: 100px
+			height: 21px
+			top: 26px
+			left: 10%
+			+addSprite
+			@extend .common-logo
+	.Nav
+		flex: 1
+		.wrap
+			height: 100%
+			padding-right: 10%
+			white-space: nowrap
+			box-sizing: border-box
+			display: flex
+			justify-content: flex-end
+			ul.Menu
+				margin: 24px 21px 0 0
+				list-style: none
+				display: inline-block
+				li
+					display: inline-block
+					a
+						padding: 0
+						margin-right: 26px
+						position: relative
+						font-size: 16px
+						color: #FFFFFF
+						line-height: 30px
+						display: block
+						&:after
+							content: ""
+							width: 100%
+							border-bottom: 4px solid $lipstick
+							position: absolute
+							bottom: 0
+							left: 0
+							display: none
+						&.active:after
+							display: block
+						&:hover, &:focus
+							text-decoration: none
+			.Email
+				padding-top: 24px
+				a
+					width: 34px
+					height: 34px
+					border-radius: 50%
+					background: $lipstick
+					display: flex
+					align-items: center
+					justify-content: center
+					&:before
+						content: ""
+						width: 16px
+						height: 16px
+						+addSprite
+						@extend .common-email
+					&:hover
+						background: darken($lipstick, 7%)
+			.Lang
+		.toggle
+			+addSprite
+			&.open
+				@extend .common-burger
+			&.close
+				@extend .common-close
+	// 動態效果
+	&.dynamic
+		background-image: unset
+		background-color: #FFFFFF
+		h1.Logo
+			a
+				background-image: url(/src/images/others/logo_dynamic.png)
+				background-size: contain
+		.Nav
+			.wrap
+				ul.Menu
+					li
+						a
+							color: #000000
+
+@media screen and (max-width: $screen-xl-min)
+	.ftcHeader
+		height: 60px
+		h1.Logo
+			a
+				left: 24px
+				top: 24px
+		.Nav
+			.wrap
+				padding-right: 24px
+				ul.Menu
+					margin: 18px 0 0 0
+				.Email
+					padding-top: 15px
+
+@media screen and (max-width: $screen-xs-max)
+	.ftcHeader
+		h1.Logo
+			a
+				width: 124px
+				height: 26px
+				left: 16px
+				top: 16px
+		.Nav
+			width: 100%
+			position: fixed
+			top: 60px
+			background: #FFFFFF
+			.wrap
+				max-height: 360px
+				padding: 0
+				overflow: hidden
+				display: block
+				transition: max-height 0.5s ease
+				&.off
+					max-height: 0
+				ul.Menu
+					padding: 12px 0 0 0
+					margin: 0
+					display: block
+					li
+						display: block
+						a
+							padding: 0 0 12px 30px
+							margin: 0 0 12px 0
+							color: #000000
+							line-height: 24px
+							&:after
+								border-bottom: 1px solid $lipstick
+				.Email
+					padding: 0 26px 15px 0
+					display: flex
+					justify-content: flex-end
+					a
+						background: unset
+						border: unset
+						width: 50px
+						height: 50px
+						&:before
+							width: 50px
+							height: 50px
+							background-image: url(/src/images/others/email.png)
+							background-size: contain
+						&:hover
+							background: unset
+			.toggle
+				width: 55px
+				height: 55px
+				position: absolute
+				top: -55px
+				right: 5px
+	// 動態效果
+	&.dynamic
+		.Nav
+			.toggle
+				background-image: url(/src/images/others/hamburger_dynamic.png)
+				background-size: contain
+				&.open
+					background-size: contain
+				&.close
+					background-image: url(/src/images/others/close.png)
+					background-size: contain
